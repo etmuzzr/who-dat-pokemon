@@ -5,28 +5,29 @@ body, html {
 }
 
 .menuButton{
-    background-color: #4CAF50;
+    background-color: #2e8d02;
     color: white;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     font-family: Arial, sans-serif;
+    font-weight: bold;
     cursor: pointer;
     height: 100%;
-    width: 10%;
+    width: 175px;
     border: none;
     padding: 30px;
-
 }
 
 .menu {
     display: flex;
-    background-color: #4CAF50;
+    background-color: #2e8d02;
     width: 100%;
+    height: 100px;
     margin: 0;
     padding: 0;
 }
 
-.logo {
-    width: 50px;
+.menuLogo {
+    width: 150px;
     height: 100%;
 }
