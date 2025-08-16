@@ -1,4 +1,4 @@
-import Footer from "./Footer.jsx"
+import Footer from "./Footer/Footer.jsx"
 import Menu from "./Menu/Menu.jsx"
 
 function App() {
