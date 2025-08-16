@@ -1,7 +1,13 @@
 function Footer() {
     return (
         <footer>
-            &copy; 2025 Who Dat Pokémon?
+            Pokémon are trademarks of Nintendo.
+            <br />
+            © 2025 Who Dat Pokémon?
+            <br />
+            All rights reserved.
+            <br />
+            Created by etmuzzr
         </footer>
     )
 };
