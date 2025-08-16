@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <footer>
-            &copy; Who Dat Pokémon?
+            &copy; 2025 Who Dat Pokémon?
         </footer>
     )
 };
