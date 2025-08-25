@@ -10,7 +10,7 @@ function Footer() {
             <br />
             All rights reserved.
             <br />
-            Created by <a href="https://github.com/etmuzzr">etmuzzr</a>
+            Created by <a className={styles.profileLink} href="https://github.com/etmuzzr" target="_blank">etmuzzr</a>
         </footer>
     )
 };

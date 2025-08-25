@@ -6,3 +6,10 @@
     font-family: Arial, sans-serif;
     color: white;
 }
+
+.profileLink:link{
+    color:#c8ff00
+}
+.profileLink:visited{
+    color:#18d118
+}
