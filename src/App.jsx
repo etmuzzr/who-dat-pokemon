@@ -5,7 +5,7 @@ import Play from "./Pages/Play.jsx"
 
 function App() {
   return (
-    <Router base="/who-dat-pokemon/">
+    <Router basename="/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pokedex" element={<Pokedex />} />
