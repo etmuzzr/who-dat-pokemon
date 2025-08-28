@@ -5,11 +5,11 @@ import Play from "./Pages/Play.jsx"
 
 function App() {
   return (
-    <Router>
+    <Router base="/">
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/pokedex" element={<Pokedex />}/>
-        <Route path="/play" element={<Play />}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/pokedex" element={<Pokedex />} />
+        <Route path="/play" element={<Play />} />
       </Routes>
     </Router>
   )
