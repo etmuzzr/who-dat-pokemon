@@ -18,6 +18,24 @@ body, html {
     padding: 30px;
 }
 
+.menuButtonActive {
+    background-color: #246b01;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    height: 100%;
+    width: 175px;
+    border: none;
+    padding: 30px;
+}
+
+.menuButtonActive:hover {
+    background-color: #1b4e01;
+}
+
 .menuButton:hover {
     background-color: #246b01;
 }
