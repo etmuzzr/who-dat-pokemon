@@ -6,7 +6,11 @@ import { useLocation } from "react-router-dom";
 import React, { useState } from "react";
 
 function Menu() {
+
     const location = useLocation();
+    const [homeOpen, setHomeOpen] = useState(true);
+    const [pokedexOpen, setPokedexOpen] = useState(false);
+    const [playOpen, setPlayOpen] = useState(false);
 
     useEffect(() => {
         if (location.pathname == "/") {
@@ -17,10 +21,6 @@ function Menu() {
             handleClick("play");
         }
     }, [location]);
-
-    const [homeOpen, setHomeOpen] = useState(true);
-    const [pokedexOpen, setPokedexOpen] = useState(false);
-    const [playOpen, setPlayOpen] = useState(false);
 
     const handleClick = (buttonClicked) => {
         setHomeOpen(buttonClicked == "home" ? true : false);
