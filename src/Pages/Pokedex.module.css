@@ -27,3 +27,28 @@
     gap: 15px;
     padding: 20px;
 }
+
+.backToTop {
+    position: fixed;
+    bottom: 120px;
+    left: 20px;
+    background-color: #2e8d02;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    font-family: Arial, sans-serif;
+
+}
+
+.backToTop:hover {
+    background-color: #246b01;
+}
+
+.backToTop:active {
+    background-color: #1b4e01;
+}

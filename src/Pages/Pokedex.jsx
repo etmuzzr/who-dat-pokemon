@@ -22,6 +22,9 @@ function Pokedex() {
 
     return (
         <>
+        <button className={styles.backToTop} onClick={() => scrollToGeneration(1)}>
+            Back to Top
+        </button>
         <div className={styles.pokedex}>
             <div className={styles.content}>
                 <h1>Generations</h1>
@@ -38,6 +41,7 @@ function Pokedex() {
                 ))
             }
         </div>
+        
         </>
     );
 }
