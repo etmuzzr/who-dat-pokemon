@@ -18,11 +18,19 @@
     font-weight: bold;
 }
 
-.image {
+.notseen {
     width: 96%;
     height: 40%;
     object-fit: contain;
     filter: brightness(0);
+    image-rendering: pixelated;
+}
+
+.seen {
+    width: 96%;
+    height: 40%;
+    object-fit: contain;
+    filter: brightness(1);
     image-rendering: pixelated;
 }
 
