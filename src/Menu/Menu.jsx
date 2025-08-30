@@ -1,10 +1,22 @@
 import styles from "./Menu.module.css";
 import logoImage from "./logo.png";
 import { Link } from "react-router-dom";
-
-import React, {useState} from "react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import React, { useState } from "react";
 
 function Menu() {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.pathname == "/") {
+            handleClick("home");
+        } else if (location.pathname == "/pokedex") {
+            handleClick("pokedex");
+        } else if (location.pathname == "/play") {
+            handleClick("play");
+        }
+    }, [location]);
 
     const [homeOpen, setHomeOpen] = useState(true);
     const [pokedexOpen, setPokedexOpen] = useState(false);
