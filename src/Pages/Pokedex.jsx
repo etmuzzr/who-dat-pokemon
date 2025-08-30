@@ -22,11 +22,11 @@ function Pokedex() {
 
     return (
         <>
-        <button className={styles.backToTop} onClick={() => scrollToGeneration(1)}>
+        <button className={styles.backToTop} onClick={() => scrollToGeneration(0)}>
             Back to Top
         </button>
         <div className={styles.pokedex}>
-            <div className={styles.content}>
+            <div id="gen0" className={styles.content}>
                 <h1>Generations</h1>
                 <DexToolbar scrollToGeneration={scrollToGeneration} generations={generations} />
             </div>
@@ -41,7 +41,6 @@ function Pokedex() {
                 ))
             }
         </div>
-        
         </>
     );
 }
