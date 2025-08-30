@@ -4,14 +4,14 @@ import styles from "./Pokedex.module.css";
 
 function Pokedex() {
 
-    const gen1 = Poke.getGen1()
-    console.log(gen1)
-
     return (
         <>
         <div className={styles.pokedex}>
             <div className={styles.content}>
                 <h1>Generation 1</h1>
+                <div className={styles.list}>
+                    {Poke.fetchGen1()}
+                </div>
             </div>
         </div>
         </>

@@ -1,0 +1,26 @@
+.entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #7cd452;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 4px;
+    width: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.text {
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.image {
+    width: 96%;
+    height: 40%;
+    object-fit: contain;
+    filter: brightness(0);
+    image-rendering: pixelated;
+}
