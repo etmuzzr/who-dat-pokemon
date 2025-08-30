@@ -1,0 +1,12 @@
+.generations {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.generation {
+    margin: 8px 4px;
+    background-color: #7cd452;
+    border-radius: 8px;
+    height: 40px;
+}
