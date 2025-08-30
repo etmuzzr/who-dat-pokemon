@@ -1,6 +1,6 @@
 import React from "react";
 
-function Pagination (props) {
+function Pagination () {
     const genNumbers = [];
 
     for (let i = 1; i <= 1; i++) {
@@ -21,3 +21,5 @@ function Pagination (props) {
         </nav>
     )
 }
+
+export default { Pagination }
