@@ -6,20 +6,27 @@ const url = "https://pokeapi.co/api/v2/pokemon/";
 function fetchPokemon(id) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
        async function getData() {
         setLoading(true);
-        let response = await fetch(url + id);
-        let json = await response.json();
-        setData(json);
-        setLoading(false);
+
+        try {
+            let response = await fetch(url + id);
+            let json = await response.json();
+            setData(json);
+        } catch (e) {
+            setError(e)
+        } finally {
+            setLoading(false);
+        }
        }
          
        getData();
     }, []);
 
-    if (loading) return <Pokemon id="..." name="..."/>;
+    if (loading || error) return <Pokemon id="..." name="..."/>;
 
     console.log(data.types)
 
