@@ -1,0 +1,11 @@
+.type {
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 5px;
+    text-align: center;
+    min-width: 75px;
+    font-family: Arial, sans-serif;
+}

@@ -15,6 +15,7 @@
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 8px 0px;
+    font-weight: bold;
 }
 
 .image {
@@ -23,4 +24,11 @@
     object-fit: contain;
     filter: brightness(0);
     image-rendering: pixelated;
+}
+
+.types {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 4px;
 }

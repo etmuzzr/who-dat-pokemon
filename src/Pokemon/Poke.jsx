@@ -28,7 +28,7 @@ function fetchPokemon(id) {
     id={data.id} 
     name={data.name.charAt(0).toUpperCase() + data.name.slice(1)} 
     image={data.sprites.front_default} 
-    type={data.types.map((t) => t.type.name.charAt(0).toUpperCase() + t.type.name.slice(1)).join(", ")} 
+    types={data.types}
     />
     )
 }
