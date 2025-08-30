@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Poke from "../Pokemon/Poke.jsx"
+import Poke from "../../Pokemon/Poke.jsx"
 import styles from "./Pokedex.module.css";
-import DexToolbar from "../DexToolbar.jsx";
+import DexToolbar from "./DexToolbar.jsx";
 
 
 
