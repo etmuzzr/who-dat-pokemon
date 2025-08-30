@@ -1,6 +1,6 @@
-import React from "react";
 import Poke from "../Pokemon/Poke.jsx"
 import styles from "./Pokedex.module.css";
+import Pagination from "../Pagination.jsx"
 
 function Pokedex() {
 
@@ -14,6 +14,7 @@ function Pokedex() {
                 </div>
             </div>
         </div>
+        
         </>
     );
 }
