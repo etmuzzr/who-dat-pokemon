@@ -1,13 +1,13 @@
 import styles from './Play.module.css';
-import Pokemon from '../../Pokemon/Pokemon.jsx';
+import Poke from '../../Pokemon/Poke.jsx';
 
 function Play() {
     return (
         <>
         <div className={styles.play}>
            <div className={styles.content}>
-
-           </div>     
+               <Poke.fetchRandom />
+           </div>   
         </div>
         </>
     );
