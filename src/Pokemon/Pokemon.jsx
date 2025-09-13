@@ -11,18 +11,35 @@ function Pokemon (props) {
 
     }, [])
 
+    if (props.fullDisplay) {
+        return (
+            <div className={styles.entry}>
+                {props.image && <img className={seen ? styles.seen : styles.notseen} src={props.image} />}
+                <p className={styles.text}>{props.id}</p>
+                <p className={styles.text}>{caught ? props.name : "???"}</p>
+                <div className={styles.types}>
+                    {props.types && props.types.map(t => <Type name={t.type.name} show={seen} />)} 
+                </div>
+                <p className={styles.text}>Seen: {seen ? "Yes" : "No"}</p>
+                <p className={styles.text}>Caught: {caught ? "Yes" : "No"}</p>
+            </div> 
+        )   
+    }
+
+    const [revealed, setRevealed] = useState(false);
+
+
+
     return (
         <div className={styles.entry}>
-            {props.image && <img className={seen ? styles.seen : styles.notseen} src={props.image} />}
-            <p className={styles.text}>{props.id}</p>
-            <p className={styles.text}>{caught ? props.name : "???"}</p>
+            {props.image && <img className={revealed ? styles.seen : styles.notseen} src={props.image} />}
+            <p className={styles.text}>{revealed ? props.id : "???"}</p>
+            <p className={styles.text}>{revealed ? props.name : "???"}</p>
             <div className={styles.types}>
-                {props.types && props.types.map(t => <Type name={t.type.name} show={seen} />)} 
+                {props.types && props.types.map(t => <Type name={t.type.name} show={revealed} />)} 
             </div>
-            <p className={styles.text}>Seen: {seen ? "Yes" : "No"}</p>
-            <p className={styles.text}>Caught: {caught ? "Yes" : "No"}</p>
-        </div>    
-    )
+        </div> 
+    );
 }
 
 export default Pokemon;

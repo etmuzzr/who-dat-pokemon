@@ -14,7 +14,7 @@ const generations = {
     8: {start: 810, end: 905}, 
     9: {start: 906, end: 1025}};
 
-function fetchPokemon(id) {
+function fetchPokemon(id, isEntry=true) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -45,6 +45,7 @@ function fetchPokemon(id) {
     name={data.name.charAt(0).toUpperCase() + data.name.slice(1)} 
     image={data.sprites.front_default} 
     types={data.types}
+    fullDisplay={isEntry}
     />
     )
 }
@@ -60,7 +61,7 @@ function fetchGen(genNumber) {
 
 function fetchRandom() {
     const randomId = Math.floor(Math.random() * generations[9].end) + 1;
-    return fetchPokemon(randomId);
+    return fetchPokemon(randomId, false);
 }
 
 export default { fetchGen, fetchRandom};
