@@ -63,4 +63,4 @@ function fetchRandom() {
     return fetchPokemon(randomId);
 }
 
-export default { fetchPokemon, fetchGen };
+export default { fetchGen, fetchRandom};
