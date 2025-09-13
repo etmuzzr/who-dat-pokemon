@@ -2,7 +2,7 @@ import styles from "./Pokemon.module.css"
 import {useState, useEffect} from "react";
 import Type from "./Type.jsx"
 
-function PokemonEntry (props) {
+function Pokemon (props) {
     const [seen, setSeen] = useState(false);
     const [caught, setCaught] = useState(false);
 
@@ -25,4 +25,4 @@ function PokemonEntry (props) {
     )
 }
 
-export default {PokemonEntry};
+export default Pokemon;
