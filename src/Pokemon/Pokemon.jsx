@@ -7,6 +7,7 @@ function Pokemon (props) {
     const [caught, setCaught] = useState(false);
 
     useEffect(() => {
+        //set seen/caught here based off cookies
 
     }, [])
 

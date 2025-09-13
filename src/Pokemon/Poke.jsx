@@ -58,4 +58,9 @@ function fetchGen(genNumber) {
     return gen;
 }
 
+function fetchRandom() {
+    const randomId = Math.floor(Math.random() * generations[9].end) + 1;
+    return fetchPokemon(randomId);
+}
+
 export default { fetchPokemon, fetchGen };
