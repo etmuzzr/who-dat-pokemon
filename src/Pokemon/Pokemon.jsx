@@ -3,15 +3,17 @@ import {useState, useEffect} from "react";
 import Type from "./Type.jsx"
 
 function Pokemon (props) {
-    const [seen, setSeen] = useState(false);
-    const [caught, setCaught] = useState(false);
-
-    useEffect(() => {
-        //set seen/caught here based off cookies
-
-    }, [])
-
+    //pokedex entry view
     if (props.fullDisplay) {
+        
+        const [seen, setSeen] = useState(false);
+        const [caught, setCaught] = useState(false);
+
+        useEffect(() => {
+            //set seen/caught here based off cookies
+
+        }, [])
+
         return (
             <div className={styles.entry}>
                 {props.image && <img className={seen ? styles.seen : styles.notseen} src={props.image} />}
@@ -26,19 +28,27 @@ function Pokemon (props) {
         )   
     }
 
+    //game view
     const [revealed, setRevealed] = useState(false);
 
-
-
     return (
-        <div className={styles.entry}>
+        <>
+        <div className={styles.wild}>
             {props.image && <img className={revealed ? styles.seen : styles.notseen} src={props.image} />}
             <p className={styles.text}>{revealed ? props.id : "???"}</p>
             <p className={styles.text}>{revealed ? props.name : "???"}</p>
             <div className={styles.types}>
                 {props.types && props.types.map(t => <Type name={t.type.name} show={revealed} />)} 
             </div>
-        </div> 
+        </div>
+        <input className={styles.input} type="text" placeholder="Who dat Pokemon?" onChange={(e) => {
+            if (e.target.value.toLowerCase() === props.name.toLowerCase()) { //maybe have some sort of matching here
+                setRevealed(true);
+                //set seen/caught cookies here
+            }
+
+        }} />
+        </>
     );
 }
 

@@ -5,9 +5,7 @@ function Play() {
     return (
         <>
         <div className={styles.play}>
-           <div className={styles.content}>
-              {Poke.fetchRandom()}
-           </div>     
+            {Poke.fetchRandom()}  
         </div>
         </>
     );
