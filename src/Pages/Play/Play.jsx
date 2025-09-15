@@ -1,20 +1,24 @@
 import styles from './Play.module.css';
 import Poke from '../../Pokemon/Poke.jsx';
-import {useState, useEffect} from 'react';
-import Type from '../../Pokemon/Type.jsx';
+import {useState, useEffect, use} from 'react';
 
 function Play() {
 
-    const [revealed, setRevealed] = useState(false);
     const [randomId, setRandomId] = useState(Math.floor(Math.random() * Poke.generations[9].end) + 1);
 
+    const chooseList = Poke.fetchAll(false);
+    var currentPokemon = chooseList[randomId - 1];
+
+    useEffect(() => {
+        currentPokemon = chooseList[randomId - 1];
+    }, [randomId])
+    
     return (
         <>
         <div className={styles.play}>
-            
-            
-            <input className={styles.input} type="text" placeholder="Who dat Pokemon?" onChange={(e) => {
-            if (e.target.value.toLowerCase() === resultData.name.toLowerCase()) { //maybe add some better string matching (allow for spelling mistakes)
+            {currentPokemon}
+            <input className={styles.input} type="text" placeholder="Who Dat Pokémon?" onChange={(e) => {
+            if (e.target.value.toLowerCase() == "test") { //maybe add some better string matching (allow for spelling mistakes)
                 setRevealed(true);
                 e.target.value = "";
                 e.target.disabled = true;

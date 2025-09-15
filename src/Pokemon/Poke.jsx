@@ -41,6 +41,15 @@ function fetchGen(genNumber) {
     return gen;
 }
 
+function fetchAll(isEntry) {
+    let all = [];
+    for (let i = 1; i <= generations[9].end; i++) {
+        all.push(fetchPokemon(i, isEntry));
+    }
+
+    return all;
+}
+
 function fetchData(id) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -69,4 +78,4 @@ function fetchData(id) {
     return (data)
 }
 
-export default { fetchGen, fetchData, generations };
+export default { fetchGen, fetchData, fetchPokemon, fetchAll, generations };
