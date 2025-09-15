@@ -14,9 +14,8 @@ const generations = {
     8: {start: 810, end: 905}, 
     9: {start: 906, end: 1025}};
 
-function fetchPokemon(id) {
+function fetchPokemon(id, isEntry=true, revealed=false) {
     const data = fetchData(id)
-    console.log(data)
 
     //failed grab
     if (data.id == "...") return (<Pokemon id={data.id} name={data.name} />)
@@ -27,6 +26,8 @@ function fetchPokemon(id) {
     name={data.name.charAt(0).toUpperCase() + data.name.slice(1)} 
     image={data.sprites.front_default} 
     types={data.types}
+    fullDisplay={isEntry}
+    revealed={revealed}
     />
     )
 }
@@ -63,9 +64,9 @@ function fetchData(id) {
        getData();
     }, []);
 
-    if (loading || error) return {id:"...", name:"none"}
+    if (loading || error) return {id: "...", name: "..."};
 
-    return data
+    return (data)
 }
 
-export default { fetchGen, fetchPokemon, fetchData, generations };
+export default { fetchGen, fetchData, generations };
