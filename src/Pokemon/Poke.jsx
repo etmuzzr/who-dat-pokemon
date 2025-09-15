@@ -14,7 +14,7 @@ const generations = {
     8: {start: 810, end: 905}, 
     9: {start: 906, end: 1025}};
 
-function fetchPokemon(id, isEntry=true, revealed=false) {
+function fetchPokemon(id) {
     const data = fetchData(id)
     console.log(data)
 
@@ -27,8 +27,6 @@ function fetchPokemon(id, isEntry=true, revealed=false) {
     name={data.name.charAt(0).toUpperCase() + data.name.slice(1)} 
     image={data.sprites.front_default} 
     types={data.types}
-    fullDisplay={isEntry}
-    revealed={revealed}
     />
     )
 }
