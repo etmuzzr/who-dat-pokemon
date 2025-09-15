@@ -41,10 +41,10 @@ function fetchGen(genNumber) {
     return gen;
 }
 
-function fetchAll(isEntry) {
+function fetchAll(isEntry, revealed) {
     let all = [];
     for (let i = 1; i <= generations[9].end; i++) {
-        all.push(fetchPokemon(i, isEntry));
+        all.push(fetchPokemon(i, isEntry, revealed));
     }
 
     return all;

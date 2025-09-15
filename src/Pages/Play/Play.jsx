@@ -1,12 +1,13 @@
 import styles from './Play.module.css';
 import Poke from '../../Pokemon/Poke.jsx';
-import {useState, useEffect, use} from 'react';
+import {useState, useEffect} from 'react';
 
 function Play() {
 
     const [randomId, setRandomId] = useState(Math.floor(Math.random() * Poke.generations[9].end) + 1);
+    const [revealed, setRevealed] = useState(false);
 
-    const chooseList = Poke.fetchAll(false);
+    const chooseList = Poke.fetchAll(false, revealed);
     var currentPokemon = chooseList[randomId - 1];
 
     useEffect(() => {
@@ -18,13 +19,13 @@ function Play() {
         <div className={styles.play}>
             {currentPokemon}
             <input className={styles.input} type="text" placeholder="Who Dat Pokémon?" onChange={(e) => {
-            if (e.target.value.toLowerCase() == "test") { //maybe add some better string matching (allow for spelling mistakes)
+            if (e.target.value.toLowerCase() == currentPokemon.props.name.toLowerCase() || e.target.value.toLowerCase() == "secret skip") { //maybe add some better string matching (allow for spelling mistakes)
                 setRevealed(true);
                 e.target.value = "";
                 e.target.disabled = true;
                 setTimeout(() => {
-                    setRandomId(Math.floor(Math.random() * Poke.generations[9].end) + 1);
                     setRevealed(false);
+                    setRandomId(Math.floor(Math.random() * Poke.generations[9].end) + 1);
                     e.target.disabled = false;
                 }, 2000);
             }
