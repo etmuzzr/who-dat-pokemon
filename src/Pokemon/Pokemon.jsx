@@ -3,7 +3,9 @@ import {useState, useEffect} from "react";
 import Type from "./Type.jsx"
 
 function Pokemon (props) {
+
     //pokedex entry view
+    
     if (props.fullDisplay) {
         
         const [seen, setSeen] = useState(false);
@@ -29,25 +31,17 @@ function Pokemon (props) {
     }
 
     //game view
-    const [revealed, setRevealed] = useState(false);
 
     return (
         <>
         <div className={styles.wild}>
-            {props.image && <img className={revealed ? styles.seen : styles.notseen} src={props.image} />}
-            <p className={styles.text}>{revealed ? props.id : "???"}</p>
-            <p className={styles.text}>{revealed ? props.name : "???"}</p>
+            {props.image && <img className={props.revealed ? styles.seen : styles.notseen} src={props.image} />}
+            <p className={styles.text}>{props.revealed ? props.id : "???"}</p>
+            <p className={styles.text}>{props.revealed ? props.name : "???"}</p>
             <div className={styles.types}>
-                {props.types && props.types.map(t => <Type name={t.type.name} show={revealed} />)} 
+                {props.types && props.types.map(t => <Type name={t.type.name} show={props.revealed} />)} 
             </div>
         </div>
-        <input className={styles.input} type="text" placeholder="Who dat Pokemon?" onChange={(e) => {
-            if (e.target.value.toLowerCase() === props.name.toLowerCase()) { //maybe have some sort of matching here
-                setRevealed(true);
-                //set seen/caught cookies here
-            }
-
-        }} />
         </>
     );
 }

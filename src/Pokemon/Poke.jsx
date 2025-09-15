@@ -14,7 +14,35 @@ const generations = {
     8: {start: 810, end: 905}, 
     9: {start: 906, end: 1025}};
 
-function fetchPokemon(id, isEntry=true) {
+function fetchPokemon(id, isEntry=true, revealed=false) {
+    const data = fetchData(id)
+    console.log(data)
+
+    //failed grab
+    if (data.id == "...") return (<Pokemon id={data.id} name={data.name} />)
+
+    return (
+    <Pokemon 
+    id={data.id} 
+    name={data.name.charAt(0).toUpperCase() + data.name.slice(1)} 
+    image={data.sprites.front_default} 
+    types={data.types}
+    fullDisplay={isEntry}
+    revealed={revealed}
+    />
+    )
+}
+
+function fetchGen(genNumber) {
+    let gen = [];
+    for (let i = generations[genNumber].start; i <= generations[genNumber].end; i++) {
+        gen.push(fetchPokemon(i));
+    }
+
+    return gen;
+}
+
+function fetchData(id) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -37,31 +65,9 @@ function fetchPokemon(id, isEntry=true) {
        getData();
     }, []);
 
-    if (loading || error) return <Pokemon id="..." name="..."/>;
+    if (loading || error) return {id:"...", name:"none"}
 
-    return (
-    <Pokemon 
-    id={data.id} 
-    name={data.name.charAt(0).toUpperCase() + data.name.slice(1)} 
-    image={data.sprites.front_default} 
-    types={data.types}
-    fullDisplay={isEntry}
-    />
-    )
+    return data
 }
 
-function fetchGen(genNumber) {
-    let gen = [];
-    for (let i = generations[genNumber].start; i <= generations[genNumber].end; i++) {
-        gen.push(fetchPokemon(i));
-    }
-
-    return gen;
-}
-
-function fetchRandom() {
-    const randomId = Math.floor(Math.random() * generations[9].end) + 1;
-    return fetchPokemon(randomId, false);
-}
-
-export default { fetchGen, fetchRandom};
+export default { fetchGen, fetchPokemon, fetchData, generations };
