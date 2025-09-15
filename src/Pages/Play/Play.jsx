@@ -1,6 +1,6 @@
 import styles from './Play.module.css';
 import Poke from '../../Pokemon/Poke.jsx';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 
 function Play() {
 
@@ -9,16 +9,21 @@ function Play() {
 
     const chooseList = Poke.fetchAll(false, revealed);
     var currentPokemon = chooseList[randomId - 1];
+    const inputRef = useRef(null);
 
     useEffect(() => {
         currentPokemon = chooseList[randomId - 1];
+         if (inputRef.current) {
+            inputRef.current.focus();
+        }
     }, [randomId])
-    
+
     return (
         <>
+
         <div className={styles.play}>
             {currentPokemon}
-            <input className={styles.input} type="text" placeholder="Who Dat Pokémon?" onChange={(e) => {
+            <input id="input" ref={inputRef} className={styles.input} type="text" placeholder="Who Dat Pokémon?" onChange={(e) => {
             if (e.target.value.toLowerCase() == currentPokemon.props.name.toLowerCase() || e.target.value.toLowerCase() == "secret skip") { //maybe add some better string matching (allow for spelling mistakes)
                 setRevealed(true);
                 e.target.value = "";
