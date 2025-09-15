@@ -21,6 +21,7 @@ function Play() {
                     {resultData.types && resultData.types.map(t => <Type name={t.type.name} show={revealed} />)}
                 </div>
             </div>
+            
             <input className={styles.input} type="text" placeholder="Who dat Pokemon?" onChange={(e) => {
             if (e.target.value.toLowerCase() === resultData.name.toLowerCase()) { //maybe add some better string matching (allow for spelling mistakes)
                 setRevealed(true);
