@@ -18,13 +18,22 @@ function Play() {
         }
     }, [randomId])
 
+    function matchGuess(guess) {
+        if (!currentPokemon) return false;
+        if (guess.search(new RegExp(currentPokemon.props.name, "i")) != -1 || 
+        guess.search(new RegExp("secretskip", "i")) != -1) {
+            return true;
+        }
+        return false;
+    }
+
     return (
         <>
 
         <div className={styles.play}>
             {currentPokemon}
             <input id="input" ref={inputRef} className={styles.input} type="text" placeholder="Who Dat Pokémon?" onChange={(e) => {
-            if (e.target.value.toLowerCase() == currentPokemon.props.name.toLowerCase() || e.target.value.toLowerCase() == "secret skip") { //maybe add some better string matching (allow for spelling mistakes)
+            if (matchGuess(e.target.value)) {
                 setRevealed(true);
                 e.target.value = "";
                 e.target.disabled = true;
