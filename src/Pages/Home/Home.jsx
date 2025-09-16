@@ -10,22 +10,20 @@ function Home() {
                     So what better way to learn it by making a simple guessing game! 😎</p>
                 <p>The game involves you guessing what you think the Pokémon is from its silhouette/image.</p>
                 <p>You can see which Pokémon you have guessed by viewing your Pokédex.</p>
-                <p><b>NOTE: TO SAVE YOUR PROGRESS, EXPORT YOUR DATA WHEN LEAVING THE SITE, AND IMPORT WHEN YOU COME BACK.</b></p>
+                <p><b>NOTE: THIS SITE USES COOKIES TO SAVE YOUR PROGRESS.</b></p>
             </div>
             <div className={styles.content}>
                 <h1>How to Play</h1>
                 <list className={styles.list}>
                     <li>Navigate to the Play page</li>
                     <li>The Pokémon silhouette/image will appear, you must type your guess in the text box</li>
-                    <li>If your guess is incorrect, further hints will be revealed until you use all of your remaining attempts</li>
-                    <li>Eventually the Pokémon will be revealed</li>
-                    <li>If you managed to correctly guess that Pokémon, your relevant Pokédex entry will be updated such that your 'caught' counter increases</li>
-                    <li>Otherwise, your relevant Pokédex entry will be updated such that your 'seen' counter increases</li>
+                    <li>If you guess correctly, the Pokémon will be revealed and added to your Pokédex</li>
                 </list>
             </div>
              <div className={styles.content}>
                 <h1>Future Updates</h1>
-                <p>...</p>  
+                <p>Hint system to provide clues</p>
+                <p>Gamemodes (generation specific)</p>
             </div>
         </div>
         </>
