@@ -1,19 +1,22 @@
 import styles from './Play.module.css';
 import Poke from '../../Pokemon/Poke.jsx';
 import {useState, useEffect, useRef} from 'react';
+import { useCookies } from 'react-cookie';
 
 function Play() {
 
     const [randomId, setRandomId] = useState(Math.floor(Math.random() * Poke.generations[9].end) + 1);
     const [revealed, setRevealed] = useState(false);
+    const [cookies, setCookie] = useCookies([randomId + "seen", randomId + "caught"]);
 
     const chooseList = Poke.fetchAll(false, revealed);
     var currentPokemon = chooseList[randomId - 1];
     const inputRef = useRef(null);
 
     useEffect(() => {
+        setCookie(randomId + "seen", "true", { path: '/' });
         currentPokemon = chooseList[randomId - 1];
-         if (inputRef.current) {
+        if (inputRef.current) {
             inputRef.current.focus();
         }
     }, [randomId])
@@ -22,6 +25,7 @@ function Play() {
         if (!currentPokemon) return false;
         if (guess.search(new RegExp(currentPokemon.props.name, "i")) != -1 || 
         guess.search(new RegExp("secretskip", "i")) != -1) {
+            setCookie(randomId + "caught", "true", { path: '/' });
             return true;
         }
         return false;

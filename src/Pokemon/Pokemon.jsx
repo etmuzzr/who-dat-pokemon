@@ -1,6 +1,7 @@
 import styles from "./Pokemon.module.css"
 import {useState, useEffect} from "react";
 import Type from "./Type.jsx"
+import { useCookies } from 'react-cookie';
 
 function Pokemon (props) {
 
@@ -10,11 +11,15 @@ function Pokemon (props) {
         
         const [seen, setSeen] = useState(false);
         const [caught, setCaught] = useState(false);
+        const [cookies, setCookie] = useCookies([props.id + "seen", props.id + "caught"]);
 
         useEffect(() => {
             //set seen/caught here based off cookies
-
-        }, [])
+            const seenCookie = cookies[props.id + "seen"];
+            const caughtCookie = cookies[props.id + "caught"];
+            if (seenCookie) setSeen(true);
+            if (caughtCookie) setCaught(true);
+        }, [cookies]);
 
         return (
             <div className={styles.entry}>
