@@ -23,34 +23,43 @@ function Play() {
 
     function matchGuess(guess) {
         if (!currentPokemon) return false;
-        if (guess.search(new RegExp(currentPokemon.props.name, "i")) != -1 || 
-        guess.search(new RegExp("secretskip", "i")) != -1) {
+        if (guess.search(new RegExp(currentPokemon.props.name, "i")) != -1) {
             setCookie(randomId + "caught", "true", { path: '/' });
             return true;
         }
         return false;
     }
 
-    return (
-        <>
+    function getNew(e) {
+        if (revealed) return;
+        setRevealed(true);
+        if (e) {
+            e.target.value = "";
+            e.target.disabled = true;
+        }
+        setTimeout(() => {
+            setRevealed(false);
+            setRandomId(Math.floor(Math.random() * Poke.generations[9].end) + 1);
+            if (e) {
+                e.target.disabled = false;
+            }
+        }, 2000);
+    }
 
+    return (
         <div className={styles.play}>
             {currentPokemon}
             <input id="input" ref={inputRef} className={styles.input} type="text" placeholder="Who Dat Pokémon?" onChange={(e) => {
             if (matchGuess(e.target.value)) {
-                setRevealed(true);
-                e.target.value = "";
-                e.target.disabled = true;
-                setTimeout(() => {
-                    setRevealed(false);
-                    setRandomId(Math.floor(Math.random() * Poke.generations[9].end) + 1);
-                    e.target.disabled = false;
-                }, 2000);
+                getNew(e);
             }
-        }}/> 
+        }}/>
+        <button id="skip" className={styles.skipButton} onClick={() => {
+            getNew();
+        }}>Skip</button> 
         </div>
-        
-        </>
+
+       
     );
 }
 

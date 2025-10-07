@@ -12,10 +12,28 @@
 }
 
 .input {
-    margin-top: 8px;
-    padding: 8px;
+    margin-top: 6px;
+    padding: 6px;
     border-radius: 4px;
-    border: 1px solid #ccc;
+    border: none;
     font-size: 16px;
     text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.skipButton {
+    margin-top: 8px;
+    padding: 8px 16px;
+    background-color: #2e8d02;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    text-align: center;
+}
+
+.skipButton:hover {
+    background-color: #246b01;
 }
