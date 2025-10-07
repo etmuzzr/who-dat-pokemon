@@ -58,8 +58,6 @@ function Play() {
             getNew();
         }}>Skip</button> 
         </div>
-
-       
     );
 }
 

@@ -32,7 +32,7 @@ function fetchPokemon(id, isEntry=true, revealed=false) {
     )
 }
 
-function fetchGen(genNumber) {
+function fetchGen(isEntry, genNumber) {
     let gen = [];
     for (let i = generations[genNumber].start; i <= generations[genNumber].end; i++) {
         gen.push(fetchPokemon(i));

@@ -32,7 +32,7 @@ function Pokedex() {
                     <div id={"gen" + genNumber} className={styles.content}>
                         <h1>Generation {genNumber}</h1>
                         <div className={styles.list}>
-                            {Poke.fetchGen(genNumber)}
+                            {Poke.fetchGen(true, genNumber)}
                         </div>
                     </div>
                 ))
