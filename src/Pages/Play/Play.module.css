@@ -12,17 +12,19 @@
 }
 
 .input {
-    margin-top: 6px;
-    padding: 6px;
+    margin-top: -60px;
+    padding: 8px;
     border-radius: 4px;
     border: none;
     font-size: 16px;
     text-align: center;
     font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
 }
 
 .skipButton {
-    margin-top: 8px;
+    margin-top: 10px;
     padding: 8px 16px;
     background-color: #2e8d02;
     border: none;
@@ -37,3 +39,16 @@
 .skipButton:hover {
     background-color: #246b01;
 }
+
+.select {
+    margin-top: 16px;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+}
+

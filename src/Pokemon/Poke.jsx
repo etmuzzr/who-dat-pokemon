@@ -35,7 +35,7 @@ function fetchPokemon(id, isEntry=true, revealed=false) {
 function fetchGen(isEntry, genNumber) {
     let gen = [];
     for (let i = generations[genNumber].start; i <= generations[genNumber].end; i++) {
-        gen.push(fetchPokemon(i));
+        gen.push(fetchPokemon(i, isEntry));
     }
 
     return gen;
