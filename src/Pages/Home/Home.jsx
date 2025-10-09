@@ -23,7 +23,6 @@ function Home() {
              <div className={styles.content}>
                 <h1>Future Updates</h1>
                 <p>Hint system to provide clues</p>
-                <p>Gamemodes (generation specific)</p>
             </div>
         </div>
         </>
